@@ -44,6 +44,24 @@ Tudo detalhado no [`DEPLOY.md`](./DEPLOY.md). Resumo do que falta fazer na VPS:
 
 ## 💡 Ideias / melhorias futuras (discutidas, não iniciadas)
 
+- [ ] **Gestão de decks**: cada usuário organiza o próprio deck — adicionar
+      cartas, montar a lista, anotar possíveis upgrades/trocas e coisas do tipo.
+      Ideia de escopo:
+      - Busca de cartas por uma **API grátis** — a padrão do ecossistema é a
+        **[Scryfall](https://scryfall.com/docs/api)** (sem chave/autenticação,
+        traz nome, imagem, custo de mana, tipos, preço, etc.). Boa prática:
+        respeitar o rate limit (~10 req/s) e cachear localmente as cartas já
+        consultadas.
+      - Modelo de dados: `decks` (dono, nome, comandante) → `deck_cards`
+        (carta, quantidade, categoria: mainboard/considerando/upgrade).
+      - Guardar só o **id da carta na Scryfall** (+ um cache de nome/imagem),
+        não a carta inteira — a fonte da verdade fica na API.
+      - Amarrar o deck ao jogador do mesão (reaproveita `commander_players`);
+        depende da evolução de "identidade por login" abaixo pra saber de quem
+        é cada deck com segurança.
+      - Extras possíveis: preço total estimado do deck, lista de upgrades com
+        custo, importar/exportar decklist em texto.
+
 - [ ] **Multi-sala**: hoje é uma senha única global. Evoluir pra várias salas,
       cada uma com sua própria senha e seus próprios jogadores/ranking — pra
       grupos diferentes usarem a mesma instância isolados.
