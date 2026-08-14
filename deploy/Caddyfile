@@ -1,0 +1,6 @@
+# Bloco do Mesão dos Cria. ADICIONE este bloco ao /etc/caddy/Caddyfile da VPS,
+# ao lado do bloco já existente do ricardordrj.com (Caddy aceita vários sites
+# no mesmo arquivo). NÃO sobrescreva o arquivo inteiro.
+mesao.ricardordrj.com {
+	reverse_proxy localhost:4100
+}

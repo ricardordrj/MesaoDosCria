@@ -87,6 +87,13 @@ ACCESS_PASSWORD=... SESSION_SECRET=... DB_URL=file:/caminho/persistente/mesao.db
 npm start              # Fastify serve a API e o front buildado na mesma porta
 ```
 
+### Deploy na VPS (subdomínio + auto-deploy)
+
+Para hospedar num subdomínio próprio (ex.: `mesao.ricardordrj.com`) com Caddy,
+systemd e deploy automático via GitHub Actions, veja o passo a passo em
+[`DEPLOY.md`](./DEPLOY.md). Os arquivos prontos estão em `deploy/` e
+`.github/workflows/`.
+
 ## Origem
 
 Extraído do projeto pessoal **organizator3000**, onde o mesão era um módulo. Aqui ele
